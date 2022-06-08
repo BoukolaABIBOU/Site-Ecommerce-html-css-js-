@@ -14,7 +14,7 @@ class Livres extends Migration
     public function up()
     {
         Schema::create('livres', function (Blueprint $table) {
-            $table->integer('ref_livre');
+            $table->id();
             $table->string('auteur_livre');
             $table->string('titre_livre');
             $table->string('image_livre');

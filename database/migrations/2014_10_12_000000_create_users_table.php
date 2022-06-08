@@ -24,6 +24,8 @@ class CreateUsersTable extends Migration
             $table->integer('adresse');
             $table->string('datecreationcompte');
             $table->string('privilieges');
+
+            $table->foreignId('livre_id')->constrained('livres')->onDelete('restrict')->onUpdate('restrict');//pour le vendeur
             
         });
     }

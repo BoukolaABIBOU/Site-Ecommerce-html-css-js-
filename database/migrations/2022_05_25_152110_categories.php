@@ -18,7 +18,7 @@ class Categories extends Migration
             $table->string('nom_categorie');
             $table->timestamps();
 
-            //$table->foreignId('article_id')->constrained('articles')->onDelete('restrict')->onUpdate('restrict');
+            $table->foreignId('livre_id')->constrained('livres')->onDelete('restrict')->onUpdate('restrict');
         });
     }
 

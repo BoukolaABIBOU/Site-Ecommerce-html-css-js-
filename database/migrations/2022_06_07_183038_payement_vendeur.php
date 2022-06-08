@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class LivreCommander extends Migration
+class PayementVendeur extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class LivreCommander extends Migration
      */
     public function up()
     {
-        Schema::create('livre_commander', function (Blueprint $table) {
-            $table->integer ('quantity_commander');
-            $table->integer('prix_vente');
+        Schema::create('payement_vendeur', function (Blueprint $table) {
+            $table->id('');
+            $table->integer('prixreçu_vendeur');
+            $table->date('date_envoi');
+            $table->string('heure_envoi');
+            $table->string('compte_envoi');
             $table->timestamps();
-
-            $table->foreignId('livre_id')->constrained('livres')->onDelete('restrict')->onUpdate('restrict');
 
             $table->foreignId('commande_id')->constrained('commandes')->onDelete('restrict')->onUpdate('restrict');
         });
@@ -31,6 +32,6 @@ class LivreCommander extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('livre_commander');
+        Schema::dropIfExists('payement_vendeur');
     }
 }
